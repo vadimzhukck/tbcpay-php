@@ -107,16 +107,19 @@
 		{
 			$curl = curl_init();
 
-			curl_setopt($curl, CURLOPT_POSTFIELDS,     $query_string);
-			curl_setopt($curl, CURLOPT_VERBOSE,        1);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 1);
-			curl_setopt($curl, CURLOPT_CAINFO,         $this->cert_path); //this need because of Self-Signed certificate at payment server.
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_SSLCERT,        $this->cert_path);
-			curl_setopt($curl, CURLOPT_SSLKEY,         $this->cert_path);
-			curl_setopt($curl, CURLOPT_SSLKEYPASSWD,   $this->cert_pass);
-			curl_setopt($curl, CURLOPT_URL,            $this->submit_url);
+			curl_setopt($curl, CURLOPT_POSTFIELDS,        $query_string);
+			curl_setopt($curl, CURLOPT_VERBOSE,           1);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST,    2);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER,    1);
+			curl_setopt($curl, CURLOPT_CAINFO,            $this->cert_path); //this need because of Self-Signed certificate at payment server.
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER,    1);
+			curl_setopt($curl, CURLOPT_SSLCERT,           $this->cert_path);
+			curl_setopt($curl, CURLOPT_SSLKEY,            $this->cert_path);
+			curl_setopt($curl, CURLOPT_SSLKEYPASSWD,      $this->cert_pass);
+			curl_setopt($curl, CURLOPT_URL,               $this->submit_url);
+			curl_setopt($curl, CURLOPT_TIMEOUT_MS,        4500); //in miliseconds
+			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT_MS, 500); //in miliseconds
+			curl_setopt($curl, CURLOPT1_SSLVERSION,       6);
 
 			$result = curl_exec($curl);
 
