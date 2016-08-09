@@ -119,7 +119,7 @@
 			curl_setopt($curl, CURLOPT_URL,               $this->submit_url);
 			curl_setopt($curl, CURLOPT_TIMEOUT_MS,        4500); //in miliseconds
 			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT_MS, 500); //in miliseconds
-			curl_setopt($curl, CURLOPT1_SSLVERSION,       6);
+			curl_setopt($curl, CURLOPT_SSLVERSION,       6);
 
 			$result = curl_exec($curl);
 
