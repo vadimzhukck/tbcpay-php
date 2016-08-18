@@ -117,9 +117,11 @@
 			curl_setopt($curl, CURLOPT_SSLKEY,            $this->cert_path);
 			curl_setopt($curl, CURLOPT_SSLKEYPASSWD,      $this->cert_pass);
 			curl_setopt($curl, CURLOPT_URL,               $this->submit_url);
-			curl_setopt($curl, CURLOPT_TIMEOUT_MS,        4500); //in miliseconds
-			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT_MS, 500); //in miliseconds
+			curl_setopt($curl, CURLOPT_TIMEOUT_MS,        8000); //in miliseconds
+			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT_MS, 4000); //in miliseconds
 			curl_setopt($curl, CURLOPT_SSLVERSION,       6);
+			curl_setopt($curl, CURLOPT_NOSIGNAL,       1);
+
 
 			$result = curl_exec($curl);
 
